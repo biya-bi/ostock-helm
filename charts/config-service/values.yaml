@@ -1,8 +1,8 @@
 replicaCount: 1
 image:
-  repository: artifactory-jcr.infra:30000/docker-local/ostock-config-service
+  repository: artifactory-jcr.infra:30000/docker-local/config-service
   pullPolicy: IfNotPresent
-  tag: 1.0@sha256:18d64554aff8ac6f70d533d4f407fee513f2357d78c21038d6b8442093cec745
+  tag: 1.0@sha256:161258762d3e0c7cfa6631bb7e32410ba4e8877acd644073a0321c29834df217
 imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
