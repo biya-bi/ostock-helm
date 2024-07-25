@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: artifactory-jcr.infra:30000/docker-local/com.optimagrowth/organization-service
   pullPolicy: IfNotPresent
-  tag: 0.0.1-SNAPSHOT@sha256:5e73a3c6edbeb621626731a29fa207245e86c99175bff4bbb71ca440430f5f62
+  tag: 0.0.1-SNAPSHOT@sha256:6b244e15c6508922784c74c2e29167f92d7a9b5f61c5a6b0f12b6dcaee4c940c
 imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
