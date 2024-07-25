@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: artifactory-jcr.infra:30000/docker-local/com.optimagrowth/organization-service
   pullPolicy: IfNotPresent
-  tag: 0.0.1-SNAPSHOT@sha256:5b3228a33284cf29ab44ee1ee60088bf7bea0bfa6f2c99b037af615efeae539d
+  tag: 0.0.1-SNAPSHOT@sha256:d0a8e0bf93ef4f0bae40c977df07c02d9d8cbeb995f528958fa635c7aaf6c091
 imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
@@ -29,28 +29,6 @@ ingress:
           pathType: ImplementationSpecific
   tls: []
 resources: {}
-# livenessProbe:
-#   exec:
-#     command:
-#       - /bin/sh
-#       - -c
-#       - curl -f -s localhost:8080/actuator/health/liveness | grep '{"status":"UP"}'
-#         || exit
-#   failureThreshold: 5
-#   initialDelaySeconds: 60
-#   periodSeconds: 10
-#   timeoutSeconds: 5
-# readinessProbe:
-#   exec:
-#     command:
-#       - /bin/sh
-#       - -c
-#       - curl -f -s localhost:8080/actuator/health/readiness | grep '{"status":"UP"}'
-#         || exit
-#   failureThreshold: 5
-#   initialDelaySeconds: 10
-#   periodSeconds: 10
-#   timeoutSeconds: 5
 autoscaling:
   enabled: false
   minReplicas: 1
