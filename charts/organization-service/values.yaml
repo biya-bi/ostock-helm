@@ -29,6 +29,25 @@ ingress:
           pathType: ImplementationSpecific
   tls: []
 resources: {}
+livenessProbe:
+  exec:
+    command:
+      - /bin/sh
+      - -c
+      - curl -f -s localhost:8080/actuator/health/liveness | grep '{"status":"UP"}' || exit
+  failureThreshold: 5
+  initialDelaySeconds: 60
+  periodSeconds: 10
+  timeoutSeconds: 5
+readinessProbe:
+  exec:
+    command:
+      - /bin/sh
+      - -c
+      - curl -f -s localhost:8080/actuator/health/readiness | grep '{"status":"UP"}' || exit
+  failureThreshold: 5
+  initialDelaySeconds: 10
+  periodSeconds: 10
 autoscaling:
   enabled: false
   minReplicas: 1
