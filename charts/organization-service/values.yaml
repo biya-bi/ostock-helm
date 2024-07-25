@@ -85,9 +85,7 @@ env:
     value: dev
   - name: SPRING_CLOUD_CONFIG_URI
     value: http://config-service:8080
-  - name: EUREKA_CLIENT_AVAILABILITYZONES_DEFAULT
-    value: default
-  - name: EUREKA_CLIENT_SERVICEURL_DEFAULT
+  - name: EUREKA_URI
     value: http://eureka-service:8080/eureka
   - name: JWT_ISSUER_URI_FILE
     value: /run/secrets/jwt/issuer-uri
