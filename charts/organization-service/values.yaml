@@ -56,26 +56,19 @@ autoscaling:
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
 volumes:
-  - name: organization-service
-    secret:
-      secretName: organization-service
+  - secret:
+      secretName: postgres
+    name: postgres
+  - configMap:
+      name: keycloak
+    name: keycloak
 volumeMounts:
-  - name: organization-service
-    mountPath: /run/secrets/jwt/issuer-uri
+  - name: postgres
+    mountPath: /run/secrets/postgres
     readOnly: true
-    subPath: jwt-issuer-uri
-  - name: organization-service
-    mountPath: /run/secrets/datasource/url
+  - name: keycloak
+    mountPath: /run/configs/keycloak
     readOnly: true
-    subPath: datasource-url
-  - name: organization-service
-    mountPath: /run/secrets/datasource/username
-    readOnly: true
-    subPath: datasource-username
-  - name: organization-service
-    mountPath: /run/secrets/datasource/password
-    readOnly: true
-    subPath: datasource-password
 nodeSelector: {}
 tolerations: []
 affinity: {}
@@ -87,10 +80,10 @@ env:
   - name: EUREKA_URI
     value: http://eureka-service:8080/eureka
   - name: JWT_ISSUER_URI_FILE
-    value: /run/secrets/jwt/issuer-uri
+    value: /run/configs/keycloak/jwt-issuer-uri
   - name: DATASOURCE_URL_FILE
-    value: /run/secrets/datasource/url
+    value: /run/secrets/postgres/url
   - name: DATASOURCE_USERNAME_FILE
-    value: /run/secrets/datasource/username
+    value: /run/secrets/postgres/user
   - name: DATASOURCE_PASSWORD_FILE
-    value: /run/secrets/datasource/password
+    value: /run/secrets/postgres/password
