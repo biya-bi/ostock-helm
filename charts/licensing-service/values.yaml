@@ -1,8 +1,8 @@
 replicaCount: 1
 image:
-  repository: nginx
+  repository: artifactory-jcr.infra:30000/docker-local/com.optimagrowth/licensing-service
   pullPolicy: IfNotPresent
-  tag: ''
+  tag: 0.0.1-SNAPSHOT@sha256:32412bb8cdde1787e4a46c264f40a7763b1ffaba5bb4ec64be68eee9992f0378
 imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
@@ -34,7 +34,8 @@ livenessProbe:
     command:
       - /bin/sh
       - -c
-      - curl -f -s localhost:8080/actuator/health/liveness | grep '{"status":"UP"}' || exit
+      - curl -f -s localhost:8080/actuator/health/liveness | grep '{"status":"UP"}'
+        || exit
   failureThreshold: 5
   initialDelaySeconds: 60
   periodSeconds: 10
@@ -44,7 +45,8 @@ readinessProbe:
     command:
       - /bin/sh
       - -c
-      - curl -f -s localhost:8080/actuator/health/readiness | grep '{"status":"UP"}' || exit
+      - curl -f -s localhost:8080/actuator/health/readiness | grep '{"status":"UP"}'
+        || exit
   failureThreshold: 5
   initialDelaySeconds: 10
   periodSeconds: 10
