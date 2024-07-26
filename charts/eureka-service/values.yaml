@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: artifactory-jcr.infra:30000/docker-local/com.optimagrowth/eureka-service
   pullPolicy: IfNotPresent
-  tag: 0.0.1-SNAPSHOT@sha256:017bd7abe99c42422542adf9ee4ff328536a4d177d26013d1c2bea592504b907
+  tag: 0.0.1-SNAPSHOT@sha256:3e59cb7acbbaa32136105e4a6f8264a7589043df26bebec72b7d234fe8dd61d4
 imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
