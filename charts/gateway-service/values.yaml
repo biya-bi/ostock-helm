@@ -1,8 +1,8 @@
 replicaCount: 1
 image:
-  repository: nginx
+  repository: artifactory-jcr.infra:30000/docker-local/com.optimagrowth/gateway-service
   pullPolicy: IfNotPresent
-  tag: ""
+  tag: 0.0.1-SNAPSHOT@sha256:b7cb6c72b5013b7cf6d6c0aaa556d479593bc12e78ef3162d654a4ae329712b4
 imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
@@ -34,7 +34,8 @@ livenessProbe:
     command:
       - /bin/sh
       - -c
-      - curl -f -s localhost:8080/actuator/health/liveness | grep '{"status":"UP"}' || exit
+      - curl -f -s localhost:8080/actuator/health/liveness | grep '{"status":"UP"}'
+        || exit
   failureThreshold: 5
   initialDelaySeconds: 60
   periodSeconds: 10
@@ -44,7 +45,8 @@ readinessProbe:
     command:
       - /bin/sh
       - -c
-      - curl -f -s localhost:8080/actuator/health/readiness | grep '{"status":"UP"}' || exit
+      - curl -f -s localhost:8080/actuator/health/readiness | grep '{"status":"UP"}'
+        || exit
   failureThreshold: 5
   initialDelaySeconds: 10
   periodSeconds: 10
@@ -65,5 +67,3 @@ env:
     value: http://eureka-service:8080/eureka
   - name: JWT_ISSUER_URI
     value: http://keycloak.infra:8080/realms/ostock
-
-
