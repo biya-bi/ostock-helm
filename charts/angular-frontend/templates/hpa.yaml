@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "ostock-angular.fullname" . }}
+  name: {{ include "angular-frontend.fullname" . }}
   labels:
-    {{- include "ostock-angular.labels" . | nindent 4 }}
+    {{- include "angular-frontend.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "ostock-angular.fullname" . }}
+    name: {{ include "angular-frontend.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
