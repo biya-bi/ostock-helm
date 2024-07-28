@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: artifactory-jcr.infra:30000/docker-local/ostock/angular-frontend
   pullPolicy: IfNotPresent
-  tag: 0.1.0@sha256:15c4f4e1ec5b2df26fb9ec03365a23baed61876ea719a6df1b2485dcf8f84576
+  tag: 0.1.0@sha256:361dbcd99d1fd939a63efd97d84c6096c54452e021159f6a697c419f0a271603
 imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
