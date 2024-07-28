@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: artifactory-jcr.infra:30000/docker-local/com.optimagrowth/gateway-service
   pullPolicy: IfNotPresent
-  tag: 0.0.1-SNAPSHOT@sha256:b53b026113725b177a552a1439e12d3c43955c5fd463afa9c63703f57ec5708f
+  tag: 0.0.1-SNAPSHOT@sha256:ffc33b6149f5abd1b17f753b1a128d2cef2004174b803c130f5f171e45298102
 imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
